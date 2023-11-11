@@ -12,7 +12,7 @@ function getTargetSuffix(target: Target): string {
     } else if (target.system == System.windows) {
         return "dll"
     } else {
-        return "dylib"
+        throw new Error("unknown target")
     }
 }
 
@@ -20,7 +20,7 @@ function getTargetSuffix(target: Target): string {
 async function compileTarget(target: Target) {
 
     const command = [
-        'zig/zig',
+        'zig',
         'cc',
         'tree-sitter/lib/src/lib.c',
         '-I',
@@ -41,8 +41,9 @@ async function compileTarget(target: Target) {
 async function compileLanguage(target: Target, language: LanguageInfo) {
     const scanner = `${language.path}/src/scanner.c`
 
+
     const command = [
-        'zig/zig',
+        'zig',
         'cc',
         `${language.path}/src/parser.c`,
         '-I',
@@ -65,11 +66,8 @@ async function compileLanguage(target: Target, language: LanguageInfo) {
 }
 
 
-await download_zig(build_info.zigVersion)
 await Promise.all(build_info.repositories.map(u => clone_repository(u)))
-
 await Promise.all(build_info.targets.map(t => mkdir(`output/${targetAsString(t)}`)))
-
 await Promise.all(build_info.targets.map(t => compileTarget(t)))
 
 
@@ -78,6 +76,7 @@ await Promise.all(
         build_info.targets.map((target) => compileLanguage(target, language))
     )
 )
+
 
 await Promise.all(
     build_info.targets.map((target) => {

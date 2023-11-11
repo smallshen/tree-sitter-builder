@@ -112,13 +112,10 @@ export const build_info: BuildInfo = {
         "https://github.com/tree-sitter/tree-sitter-python.git",
         "https://github.com/tree-sitter/tree-sitter-regex.git",
         "https://github.com/r-lib/tree-sitter-r.git",
-        "https://github.com/tree-sitter/tree-sitter-ruby.git",
         "https://github.com/tree-sitter/tree-sitter-rust.git",
         "https://github.com/tree-sitter/tree-sitter-scala.git",
         "https://github.com/serenadeai/tree-sitter-scss.git",
         "https://github.com/AbstractMachinesLab/tree-sitter-sexp.git",
-        "https://github.com/takegue/tree-sitter-sql-bigquery.git",
-        "https://github.com/m-novikov/tree-sitter-sql.git",
         "https://github.com/dhcmrlchtdj/tree-sitter-sqlite.git",
         "https://github.com/Himujjal/tree-sitter-svelte.git",
         "https://github.com/ikatyang/tree-sitter-toml.git",
@@ -286,10 +283,6 @@ export const build_info: BuildInfo = {
                 "path": "tree-sitter-r"
             },
             {
-                "name": "ruby",
-                "path": "tree-sitter-ruby"
-            },
-            {
                 "name": "rust",
                 "path": "tree-sitter-rust"
             },
@@ -304,14 +297,6 @@ export const build_info: BuildInfo = {
             {
                 "name": "sexp",
                 "path": "tree-sitter-sexp"
-            },
-            {
-                "name": "sql-bigquery",
-                "path": "tree-sitter-sql-bigquery"
-            },
-            {
-                "name": "sql",
-                "path": "tree-sitter-sql"
             },
             {
                 "name": "sqlite",
